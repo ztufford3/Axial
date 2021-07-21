@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 
 import { routes } from './utils/constants';
+import { FinancialNumberInput } from './pages';
 
 
 
@@ -17,7 +18,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route path={`/${routes.FINANCIAL_NUMBER_INPUT}`}>
-          <input />
+          <FinancialNumberInput />
         </Route>
         <Route path="/" render={() => <Redirect to={`/${routes.FINANCIAL_NUMBER_INPUT}`} />} />
       </Switch>
