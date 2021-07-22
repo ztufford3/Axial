@@ -1,6 +1,9 @@
 import React, { ChangeEvent, FC } from 'react';
-import { makeStyles, TextField } from '@material-ui/core';
+import { makeStyles, Button, TextField } from '@material-ui/core';
+
 import { spacingUnits } from '../../style';
+import ChangeRouteButton from '../ChangeRouteButton';
+import { AppRoute } from '../../utils/constants';
 
 type FinancialNumberInputProps = {
     financialNumber: string,
@@ -9,7 +12,7 @@ type FinancialNumberInputProps = {
 
 const useStyles = makeStyles({
     textField: {
-        marginTop: spacingUnits(2),
+        margin: `${spacingUnits(2)} 0 ${spacingUnits(4)}`,
     },
 });
 
@@ -28,6 +31,11 @@ const FinancialNumberInput: FC<FinancialNumberInputProps> = (props) => {
                 onChange={handleSetFinancialNumber}
                 value={financialNumber}
                 variant="outlined"
+            />
+            <ChangeRouteButton
+                disabled={!financialNumber}
+                newRoute={AppRoute.FINANCIAL_NUMBER_DISPLAY}
+                text="Convert"
             />
         </>
     );

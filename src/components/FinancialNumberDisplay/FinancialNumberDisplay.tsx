@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { spacingUnits } from '../../style';
 import { convertFinancialNumberFromString } from '../../utils/financialNumberUtils';
+import ChangeRouteButton from '../ChangeRouteButton';
+import { AppRoute } from '../../utils/constants';
 
 type FinancialNumberDisplayProps = { financialNumber: string };
 
@@ -19,11 +21,15 @@ const FinancialNumberDisplay: FC<FinancialNumberDisplayProps> = (props) => {
     return (
         <>
             <div className={styles.yourResultText}>
-                Please enter a financial number (e.g. 250k, 10m, or 0.5b)
+                The numerical value is:
             </div>
             <div>
                 {convertFinancialNumberFromString(financialNumber)}
             </div>
+            <ChangeRouteButton
+                newRoute={AppRoute.FINANCIAL_NUMBER_INPUT}
+                text="Back to Input"
+            />
         </>
     );
 };

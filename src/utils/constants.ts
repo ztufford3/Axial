@@ -6,9 +6,9 @@ const financialAbbreviationMap: FinancialAbbreviationMapType = {
     'b': 1000000000,
 };
 
-const routes = {
-    FINANCIAL_NUMBER_DISPLAY: 'FinancialNumberDisplay',
-    FINANCIAL_NUMBER_INPUT: 'FinancialNumberInput',
+enum AppRoute {
+    FINANCIAL_NUMBER_DISPLAY = 'FinancialNumberDisplay',
+    FINANCIAL_NUMBER_INPUT = 'FinancialNumberInput',
 };
 
-export { financialAbbreviationMap, routes };
+export { AppRoute, financialAbbreviationMap };
