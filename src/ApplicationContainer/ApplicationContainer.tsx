@@ -23,7 +23,7 @@ const ApplicationContainer: FC = () => {
     const styles = useStyles();
 
     const handleSetFinancialNumber: (e: ChangeEvent<HTMLInputElement>)  => void = (e) => {
-        setFinancialNumber(e.target.value);
+        setFinancialNumber(e.target.value.trim());
     };
 
     return (

@@ -28,9 +28,11 @@ const FinancialNumberDisplay: FC<FinancialNumberDisplayProps> = (props) => {
 
     return (
         <>
-            <div className={styles.yourResultText}>
-                The numerical value is:
-            </div>
+            {!errorMessage && (
+                <div className={styles.yourResultText}>
+                    The numerical value is:
+                </div>
+            )}
             <div>
                 {displayNumber || errorMessage}
             </div>
