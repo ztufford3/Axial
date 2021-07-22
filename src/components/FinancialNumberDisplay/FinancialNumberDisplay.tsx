@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { makeStyles } from '@material-ui/core';
 import { spacingUnits } from '../../style';
-import { convertFinancialNumberFromString } from '../../utils/financialNumberUtils';
+import { convertFinancialNumberFromString, formatFinancialNumber } from '../../utils/financialNumberUtils';
 import ChangeRouteButton from '../ChangeRouteButton';
 import { AppRoute } from '../../utils/constants';
 
@@ -18,13 +18,21 @@ const FinancialNumberDisplay: FC<FinancialNumberDisplayProps> = (props) => {
 
     const styles = useStyles();
 
+    const convertedFinancialNumber = convertFinancialNumberFromString(financialNumber);
+    const formattedFinancialNumber = convertedFinancialNumber && formatFinancialNumber(convertedFinancialNumber);
+
+    // Account for the case where the number is well below 1 and can't be formatted with commas
+    const displayNumber = convertedFinancialNumber && convertedFinancialNumber > 999 ? formattedFinancialNumber : convertedFinancialNumber;
+
+    const errorMessage = 'Oops! Something went wrong. Please try again!';
+
     return (
         <>
             <div className={styles.yourResultText}>
                 The numerical value is:
             </div>
             <div>
-                {convertFinancialNumberFromString(financialNumber)}
+                {displayNumber || errorMessage}
             </div>
             <ChangeRouteButton
                 newRoute={AppRoute.FINANCIAL_NUMBER_INPUT}
