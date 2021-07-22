@@ -1,4 +1,3 @@
-// TODO: low effort to refactor this pattern, come back and think about this once implementation is complete
 import React, { useState, FC, ChangeEvent } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
