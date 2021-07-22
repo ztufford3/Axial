@@ -11,6 +11,9 @@ const useStyles = makeStyles({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    textField: {
+        marginTop: spacingUnits(2),
+    },
 });
 
 const FinancialNumberInput: FC = () => {
@@ -18,7 +21,13 @@ const FinancialNumberInput: FC = () => {
 
     return (
         <div className={styles.inputContainer}>
-            <TextField variant="outlined" />
+            <div>
+                Please enter a financial number (e.g. 250k, 10m, or 0.5b)
+            </div>
+            <TextField
+                className={styles.textField}
+                variant="outlined"
+            />
         </div>
     );
 };
